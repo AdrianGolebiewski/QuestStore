@@ -1,0 +1,35 @@
+<h1 id="tableLabel">Users</h1>
+
+<p>This component demonstrates all available users (only for Admins).</p>
+
+<p *ngIf="!quests"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
+  <thead>
+    <tr>
+      <th> firstname</th>
+      <th> lastname</th>
+      <th> email</th>
+      <th> phonenumber</th>
+      <th> address</th>
+      <th> postcode</th>
+      <th> status</th>
+      
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phoneNumber }}</td>
+      <td>{{ user.adres }}</td>
+      <td>{{ user.postcode }}</td>
+      <td>{{ user.status }}</td>
+     
+
+    </tr>
+  </tbody>
+</table>
