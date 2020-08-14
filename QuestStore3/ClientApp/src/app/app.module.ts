@@ -13,6 +13,7 @@ import { OverviewComponent } from './components/quest/overview/overview.componen
 import { AddComponent } from './components/quest/add/add.component';
 import { GetBonusComponent } from './Components/bonus/get-bonus/get-bonus.component';
 import { GetUserComponent } from './Components/user/get-user/get-user.component';
+import { RegistrationComponent } from './Components/home/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { GetUserComponent } from './Components/user/get-user/get-user.component'
     AddComponent,
     GetBonusComponent,
     GetUserComponent,
+    RegistrationComponent,
 
     
   ],
@@ -40,6 +42,7 @@ import { GetUserComponent } from './Components/user/get-user/get-user.component'
       { path: 'overview', component: OverviewComponent },
       { path: 'get-bonus', component: GetBonusComponent },
       { path: 'get-user', component: GetUserComponent },
+      { path: 'registration', component: RegistrationComponent },
     ])
   ],
   providers: [],
