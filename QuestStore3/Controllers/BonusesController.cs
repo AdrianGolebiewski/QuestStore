@@ -11,7 +11,7 @@ using QuestStore3.Models;
 namespace QuestStore3.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BonusesController : Controller
     {
         private readonly QuestContext _context;

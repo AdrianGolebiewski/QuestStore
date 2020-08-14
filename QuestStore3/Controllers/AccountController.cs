@@ -15,7 +15,7 @@ namespace QuestStore3.Controllers
 
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AccountController : Controller
 
     {
@@ -26,6 +26,7 @@ namespace QuestStore3.Controllers
         {
             _context = context;
         }
+
 
         //[HttpPost] //TODO: spr. atrybuty
         //[ValidateAntiForgeryToken]
@@ -63,12 +64,25 @@ namespace QuestStore3.Controllers
         //    return RedirectToAction("Login", "Home");
         //}
 
+
+        [HttpGet]
+        public string[] Get()
+        {
+            var identityString = new string[3];
+            identityString[0] = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Role)?.Value;
+            identityString[1] = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
+            identityString[2] = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.SerialNumber)?.Value;
+
+            return identityString;
+        }
+
+
         [HttpPost]
-        public async Task<IEnumerable<string>> Post(UserLogin user)
+        public async Task<bool> Post(UserLogin user)
 
         {
             ClaimsIdentity identity = null;
-            var identityString = new string[3];
+    
             
             if (ModelState.IsValid)
             {
@@ -86,10 +100,8 @@ namespace QuestStore3.Controllers
                     }, CookieAuthenticationDefaults.AuthenticationScheme);
                     var principal = new ClaimsPrincipal(identity);
                     var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                    var temp = identity.Claims;
-                    identityString[0] = pass.FirstName;
-                    identityString[1] = "Admin";
-                    return identityString;
+
+                    return true;
                 }
 
                 if (pass != null && user.Password == pass.Password && pass.Role == Role.Mentor && pass.Status == Status.Active)
@@ -103,7 +115,7 @@ namespace QuestStore3.Controllers
                     var principal = new ClaimsPrincipal(identity);
                     var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    return identityString;
+                    return true;
                 }
 
                 if (pass != null && user.Password == pass.Password && pass.Role == Role.Student && pass.Status == Status.Active)
@@ -116,19 +128,19 @@ namespace QuestStore3.Controllers
                     var principal = new ClaimsPrincipal(identity);
                     var login = HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                    return identityString;
+                    return true;
                 }
             }
-            return identityString;
+            return false;
         }
 
+        [HttpOptions]
+        public async Task<bool> Logout()
+        {
+            var login =  HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-        //public IActionResult Logout()
-
-        //{
-        //    var login = HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        //    return RedirectToAction("Login");
-        //}
+            return true;
+        }
 
 
         public string GetHash(string password)
@@ -156,9 +168,6 @@ namespace QuestStore3.Controllers
         //{
 
         //    _accessData.UserName = UserName;
-
-
-
         //    if (_iAccesData.GetAccessData(_accessData) != null)
 
         //    {

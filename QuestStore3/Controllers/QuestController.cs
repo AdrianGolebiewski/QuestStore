@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace QuestStore3.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class QuestController : Controller
     {
         private readonly QuestContext _context;

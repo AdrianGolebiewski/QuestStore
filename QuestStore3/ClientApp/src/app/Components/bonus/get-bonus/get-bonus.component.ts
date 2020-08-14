@@ -11,7 +11,7 @@ export class GetBonusComponent {
   public bonuses: Bonus[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Bonus[]>(baseUrl + 'bonuses').subscribe(result => {
+    http.get<Bonus[]>(baseUrl + 'api/bonuses').subscribe(result => {
       this.bonuses = result;
     }, error => console.error(error));
   }

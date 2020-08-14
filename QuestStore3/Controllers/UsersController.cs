@@ -14,7 +14,7 @@ namespace QuestStore3.Controllers
 {
     [Authorize(Roles = "Admin")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsersController : Controller
     {
         private readonly QuestContext _context;

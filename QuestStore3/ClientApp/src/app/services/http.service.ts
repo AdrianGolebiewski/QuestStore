@@ -18,4 +18,9 @@ export class HttpService {
   {
     return this.httpService.post(route, body);
   }
+
+  public getIdentity(route: string)
+  {
+    return this.httpService.get<any>(route);
+  }
 }
