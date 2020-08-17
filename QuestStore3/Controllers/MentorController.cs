@@ -13,6 +13,8 @@ using Microsoft.Extensions.Caching.Memory;
 namespace QuestStore3.Controllers
 {
     [Authorize(Roles = "Mentor")]
+    [ApiController]
+    [Route("api/[controller]")]
     public class MentorController : Controller
     {
         private readonly QuestContext _context;
@@ -26,12 +28,7 @@ namespace QuestStore3.Controllers
             _groupAssignment = groupAssignment;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        
+            
 
         public async Task<IActionResult> EditGroup(int? id)
         {
@@ -48,13 +45,9 @@ namespace QuestStore3.Controllers
             return View(@group);
         }
 
-   
-        public IActionResult Students()
+        [HttpGet]
+        public IEnumerable<User> GetStudents()
         {
-            //var mentorId = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.SerialNumber)?.Value;
-            //var mentorGroupId = _context.Group.Where(g => g.MentorId.ToString() == mentorId).ToList();
-            //var mentorUserGroup = _context.GroupAssignment.Include()
-
             var mentorId = User.FindFirst(claim => claim.Type == System.Security.Claims.ClaimTypes.SerialNumber)?.Value;
             var mentorGroupId = _context.Group.Where(g => g.MentorId.ToString() == mentorId).ToList();
             var userList = new List<User>();
@@ -69,9 +62,9 @@ namespace QuestStore3.Controllers
                     userList.Add(x);
 
                 }
-                return View(userList);
+                return userList;
             }
-            return View();
+            return null;
 
              
 

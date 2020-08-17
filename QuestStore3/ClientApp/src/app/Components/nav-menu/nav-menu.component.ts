@@ -18,11 +18,8 @@ export class NavMenuComponent implements OnInit {
   loginUser: User;
   private _httpClient: HttpClient;
   private _base: string;
-  notLogged: boolean;
-  admin: boolean;
-  mentor: boolean;
-  student: boolean;
-
+  notLogged; admin; mentor; student: boolean;
+  identity: string[];
   
 
   constructor(private https: HttpService, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
@@ -45,9 +42,6 @@ export class NavMenuComponent implements OnInit {
         (error) => {
           console.error(error);
         });
-
-    
-
   }
 
   public identityInfo( list: string[]) {
@@ -66,12 +60,11 @@ export class NavMenuComponent implements OnInit {
     }
   }
 
-   
   ngOnInit() {
     let temp: string[];
     this._httpClient.get<string[]>(this._base + 'api/account').subscribe(result => {
-      temp = result as string[];
-      this.identityInfo(temp);
+      this.identity = result as string[];
+      this.identityInfo(this.identity);
     });
     this.initializeForm();
   }
@@ -85,7 +78,6 @@ export class NavMenuComponent implements OnInit {
   onSubmit() {
     this.loginUser = this.loginForm.value;
     this.logIn();
-
   }
 
   logOut() {
@@ -95,9 +87,7 @@ export class NavMenuComponent implements OnInit {
     },
       (error) => {
         console.error(error);
-      });
-
-   
+      });   
   }
 
   collapse() {

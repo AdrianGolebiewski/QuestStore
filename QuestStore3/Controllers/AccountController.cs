@@ -135,7 +135,7 @@ namespace QuestStore3.Controllers
         }
 
         [HttpOptions]
-        public async Task<bool> Logout()
+        public bool Logout()
         {
             var login =  HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 

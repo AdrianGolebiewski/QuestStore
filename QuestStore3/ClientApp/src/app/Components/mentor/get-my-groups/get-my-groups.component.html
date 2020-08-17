@@ -1,0 +1,31 @@
+<h1 id="tableLabel">My groups</h1>
+
+<p>This component demonstrates all available your groups.</p>
+
+<p *ngIf="!myGroup"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="myGroup">
+  <thead>
+    <tr>
+      <th> Group ID</th>
+      <th> Name</th>
+      <th> Description</th>
+      <th>
+        <button type="button" class="btn btn-outline-primary"  [routerLinkActive]="['link-active']" [routerLink]="['/add-group']">Create new group</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of myGroup">
+      <td>{{ user.groupID }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.description }}</td>
+      <td>
+          <button type="button" class="btn btn-outline-success btn-sm mr-1" >Add student</button>
+          <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
+          <button type="button" class="btn btn-outline-info btn-sm mr-1">Details</button>
+          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -23,9 +23,6 @@ namespace QuestStore3.Controllers
         private readonly AccountController _login;
         private readonly User _user;
 
-
-
-
         public HomeController(ILogger<HomeController> logger, QuestContext context, AccountController login, User user)
         {
             _logger = logger;

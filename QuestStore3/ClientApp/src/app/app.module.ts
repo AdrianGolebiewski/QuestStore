@@ -14,6 +14,10 @@ import { AddComponent } from './components/quest/add/add.component';
 import { GetBonusComponent } from './Components/bonus/get-bonus/get-bonus.component';
 import { GetUserComponent } from './Components/user/get-user/get-user.component';
 import { RegistrationComponent } from './Components/home/registration/registration.component';
+import { GetMyStudentsComponent } from './Components/mentor/get-my-students/get-my-students.component';
+import { GetMyGroupsComponent } from './Components/mentor/get-my-groups/get-my-groups.component';
+import { AddGroupComponent } from './Components/group/add-group/add-group.component';
+import { DetailsGroupComponent } from './Components/group/details-group/details-group.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { RegistrationComponent } from './Components/home/registration/registrati
     GetBonusComponent,
     GetUserComponent,
     RegistrationComponent,
+    GetMyStudentsComponent,
+    GetMyGroupsComponent,
+    AddGroupComponent,
+    DetailsGroupComponent,
 
     
   ],
@@ -43,6 +51,10 @@ import { RegistrationComponent } from './Components/home/registration/registrati
       { path: 'get-bonus', component: GetBonusComponent },
       { path: 'get-user', component: GetUserComponent },
       { path: 'registration', component: RegistrationComponent },
+      { path: 'get-my-students', component: GetMyStudentsComponent },
+      { path: 'get-my-groups', component: GetMyGroupsComponent },
+      { path: 'add-group', component: AddGroupComponent },
+
     ])
   ],
   providers: [],
