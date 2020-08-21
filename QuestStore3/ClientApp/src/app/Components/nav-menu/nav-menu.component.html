@@ -1,109 +1,98 @@
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
- <header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="['/']">QuestStore3</a>
-      <button class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target=".navbar-collapse"
-              aria-label="Toggle navigation"
-              [attr.aria-expanded]="isExpanded"
-              (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
+      <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/']">QuestStore3</a>
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+                aria-label="Toggle navigation"
+                [attr.aria-expanded]="isExpanded"
+                (click)="toggle()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-           [ngClass]="{ show: isExpanded }" *ngIf="notLogged">
-        <ul class="navbar-nav flex-grow-1">
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/overview']">Quests</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Students</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <form class="form-inline" [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="notLogged">
-          <div class="form-group mr-2">
-            <input type="text" class="form-control" placeholder="Enter e-mail" formControlName="email" />
-          </div>
-          <div class="form-group mr-2">
-            <input type=password class="form-control" placeholder="Enter password" formControlName="password" />
-          </div>
-          <div class="form-check float-right">
-            <button type="submit" class="btn btn-primary">Login</button>
-          </div>
-        </form>
-      </div>
-      <div *ngIf="notLogged" class="btn btn-primary float-right" [routerLink]="['/registration']" style="margin-left: 10px">Registration</div>
-
-
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-           [ngClass]="{ show: isExpanded }" *ngIf="admin">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/get-user']">Users</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/overview']">Quests</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
-          </li>
-          <li>
-          <li class="nav-item">
-            <a class="btn btn-primary" style="margin-left: 10px" (click)="logOut()">Logout</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-           [ngClass]="{ show: isExpanded }" *ngIf="mentor">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/get-my-students']">My Students</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/get-my-groups']">My Groups</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/overview']">Quests</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
-          </li>
-        </ul>
-      </div>
-      <div *ngIf="mentor" class="text-dark" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
-      <div *ngIf="mentor" class="btn btn-primary float-right" style="margin-left: auto" (click)="logOut()">Logout</div>
-
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-           [ngClass]="{ show: isExpanded }" *ngIf="student">
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/overview']">Quests</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary" style="margin-left: 10px" (click)="logOut()">Logout</a>
-          </li>
-        </ul>
-      </div>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+             [ngClass]="{ show: isExpanded }" *ngIf="notLogged">
+          <ul class="navbar-nav flex-grow-1">
+            <li> <a class="nav-item nav-link text-dark" href="#about">About</a></li>
+            <li> <a class="nav-item nav-link text-dark" href="#team">The Team</a></li>
+            <li> <a class="nav-item nav-link text-dark" href="#quests">Quests</a></li>
+            <li> <a class="nav-item nav-link text-dark" href="#bonuses">Bonuses</a></li>
+            <li> <a class="nav-item nav-link text-dark" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <form class="form-inline" [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="notLogged">
+            <div class="form-group mr-2">
+              <input type="text" class="form-control" placeholder="Enter e-mail" formControlName="email" />
+            </div>
+            <div class="form-group mr-2">
+              <input type=password class="form-control" placeholder="Enter password" formControlName="password" />
+            </div>
+            <div class="form-check float-right">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="notLogged" class="btn btn-primary float-right" [routerLink]="['/registration']" style="margin-left: 10px">Registration</div>
 
 
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+             [ngClass]="{ show: isExpanded }" *ngIf="admin">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/get-user']">Users</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/overview']">Quests</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
+          </ul>
+        </div>
+        <div *ngIf="admin" class="identity" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
+        <div *ngIf="admin" class="btn btn-primary float-right" style="margin-left: auto" (click)="logOut()">Logout</div>
 
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+             [ngClass]="{ show: isExpanded }" *ngIf="mentor">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/get-my-students']">My Students</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/get-my-groups']">My Groups</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/overview']">Quests</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="mentor" class="identity" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
+        <div *ngIf="mentor" class="btn btn-primary float-right" style="margin-left: auto" (click)="logOut()">Logout</div>
 
-    </div>
-
-  </nav>
-
-</header>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+             [ngClass]="{ show: isExpanded }" *ngIf="student">
+          <ul class="navbar-nav  mr-auto">
+            <li class="nav-item" [routerLinkActive]="['link-active']"
+                [routerLinkActiveOptions]="{ exact: true }">
+              <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/overview']">Quests</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="student" class="identity" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
+        <div *ngIf="student" class="btn btn-primary float-right" style="margin-left: auto" (click)="logOut()">Logout</div>
+       </div>
+    </nav>
+  </body>
 

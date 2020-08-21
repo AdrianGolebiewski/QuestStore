@@ -1,3 +1,186 @@
-<h1>Welcome to Quest Store 3 (SPA)</h1>
+    <!-- Slider -->
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+  <div class="container-slider">
+    <ngb-carousel [showNavigationArrows]="true"
+                  [showNavigationIndicators]="true"
+                  interval="9000"
+                  [keyboard]="true"
+                  [pauseOnHover]="false"
+                  [wrap]="true"
+                  [activeId]="'slideTwo'">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="/img/slider8.jpg" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>We have some new Quests especially for you!</h3>
+          <p><a href="#quests">let's try here ---</a></p>
+        </div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img src="/img/slider10.jpg" alt="Random first slide">
+        </div>
+        <div class="carousel-caption">
+          <h3>If you already have tons of golden coins you can buy some bonuses!</h3>
+          <p><a href="#bonuses">let's try here --- </a></p>
+
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+  <!-- About Queststore3, The team -->
+
+  <div id="about" class="container text-center">
+    <h3>About Quest Store 3 </h3>
+    <p>We have created a fictional Quest Store website.</p>
+    <br>
+    <div id="team">
+      <h3>The Team</h3>
+      <br>
+      <div class="row">
+        <div class="col">
+          <p>
+            <img src="/img/lukasz_kedziora.jpg" class="rounded-circle person" alt="Łukasz" width="255" height="255">
+            <br><br>
+            <button type="button" class="btn pull-right" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="isCollapsed" aria-controls="collapseExample">
+              Łukasz
+            </button>
+          </p>
+          <div id="collapseExample" [ngbCollapse]="isCollapsed">
+            <div class="card ">
+              <div class="card-body">
+                info o Łukaszu:)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p>
+            <img src="" class="img-circle person" alt="Foto Radek" width="255" height="255">
+            <br><br>
+            <button type="button" class="btn pull-right" (click)="isCollapsedB = !isCollapsedB"
+                    [attr.aria-expanded]="isCollapsedB" aria-controls="collapseExample">
+              Radek
+            </button>
+          </p>
+          <div id="collapseExample" [ngbCollapse]="isCollapsedB">
+            <div class="card ">
+              <div class="card-body">
+                info o Radku
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p>
+            <img src="" class="img-circle person" alt="Foto Adrian" width="255" height="255">
+            <br><br>
+            <button type="button" class="btn pull-right" (click)="isCollapsedC = !isCollapsedC"
+                    [attr.aria-expanded]="isCollapsedC" aria-controls="collapseExample">
+              Adrian
+            </button>
+          </p>
+          <div id="collapseExample" [ngbCollapse]="isCollapsedC">
+            <div class="card ">
+              <div class="card-body">
+                info o Adrianie
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <p>
+            <img src="" class="img-circle person" alt="Foto Tomek" width="255" height="255">
+            <br><br>
+            <button type="button" class="btn pull-right" (click)="isCollapsedD = !isCollapsedD"
+                    [attr.aria-expanded]="isCollapsedD" aria-controls="isCollapsedD">
+              Tomek
+            </button>
+          </p>
+          <div id="collapseExample" [ngbCollapse]="isCollapsedD">
+            <div class="card ">
+              <div class="card-body">
+                info o Tomku
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
+  <!-- Container (Quests Section) -->
+  <div id="quests" class="bg-1">
+    <div class="container">
+      <h3 class="text-center">QUESTS</h3>
+      <p class="text-center">Remember about <span class="badge badge-light">Golden coins!</span></p>
+      <div class="row text-center">
+        <div class="col-sm-4" *ngFor="let quest of quests">
+          <div class="thumbnail img-thumbnail">
+            <img src="/img/quests/{{quest.fileString}}" alt="foto" width="400" height="300">
+            <p><strong>{{quest.name}}</strong></p>
+            <p>{{quest.description}}</p>
+            <button class="btn" data-toggle="modal">More info</button>
+            <button class="btn" data-toggle="modal">Earn <span class="badge badge-light">{{quest.price}}</span>coins</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Container (Bonuses Section) -->
+  <div id="bonuses" class="bg-2">
+    <div class="container">
+      <h3 class="text-center">BONUSES</h3>
+      <p class="text-center">You have <span class="badge badge-light">xx golden coins!</span></p>
+      <div class="row text-center">
+        <div class="col-sm-4" *ngFor="let bonus of bonuses">
+          <div class="thumbnail">
+            <img src="/img/bonuses/{{bonus.fileString}}" alt="foto" width="400" height="300">
+            <p><strong>{{bonus.name}}</strong></p>
+            <p>{{bonus.description}}</p>
+            <button class="btn" data-toggle="modal">More info</button>
+            <button class="btn" data-toggle="modal">Buy it for <span class="badge badge-light">{{bonus.price}}</span>coins</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container (Contact Section) -->
+  <div id="contact" class="container">
+    <h3 class="text-center">Contact</h3>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p>Fan? Drop a note.</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
+        <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>
+        <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+        <br>
+        <div class="row">
+          <div class="col-md-12 form-group">
+            <button class="btn pull-right" type="submit">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image of location/map -->
+  <img src="" class="img-responsive" style="width:100%">
+</body>

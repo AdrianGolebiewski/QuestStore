@@ -1,35 +1,47 @@
-<h1 id="tableLabel">Users</h1>
+<div id="band" class="container-no-homepages text-center">
 
-<p>This component demonstrates all available users (only for Admins).</p>
+  <h1 id="tableLabel">Users</h1>
 
-<p *ngIf="!quests"><em>Loading...</em></p>
+  <p>This component demonstrates all available users (only for Admins).</p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
-  <thead>
-    <tr>
-      <th> firstname</th>
-      <th> lastname</th>
-      <th> email</th>
-      <th> phonenumber</th>
-      <th> address</th>
-      <th> postcode</th>
-      <th> status</th>
-      
+  <p *ngIf="!users"><em>Loading...</em></p>
+
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
+    <thead>
+      <tr>
+        <th> Firstname</th>
+        <th> Lastname</th>
+        <th> Email</th>
+        <th> Phonenumber</th>
+        <th> Address</th>
+        <th> Postcode</th>
+        <th> Status</th>
+        <th> Role</th>
+        <th> Registration</th>
 
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.firstName }}</td>
-      <td>{{ user.lastName }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.phoneNumber }}</td>
-      <td>{{ user.adres }}</td>
-      <td>{{ user.postcode }}</td>
-      <td>{{ user.status }}</td>
-     
 
-    </tr>
-  </tbody>
-</table>
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.adress }}</td>
+        <td>{{ user.postcode }}</td>
+        <td>{{ user.status }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.registrationDate }}</td>
+
+
+
+
+      </tr>
+    </tbody>
+  </table>
+  </div>

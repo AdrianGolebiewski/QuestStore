@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';  
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
@@ -18,7 +19,7 @@ import { GetMyStudentsComponent } from './Components/mentor/get-my-students/get-
 import { GetMyGroupsComponent } from './Components/mentor/get-my-groups/get-my-groups.component';
 import { AddGroupComponent } from './Components/group/add-group/add-group.component';
 import { DetailsGroupComponent } from './Components/group/details-group/details-group.component';
-import { HttpService } from './services/http.service';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HttpService } from './services/http.service';
     GetMyGroupsComponent,
     AddGroupComponent,
     DetailsGroupComponent,
+    FooterComponent,
 
     
   ],
@@ -44,6 +46,7 @@ import { HttpService } from './services/http.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -55,12 +58,12 @@ import { HttpService } from './services/http.service';
       { path: 'get-my-students', component: GetMyStudentsComponent },
       { path: 'get-my-groups', component: GetMyGroupsComponent },
       { path: 'add-group', component: AddGroupComponent },
+      { path: 'details-group/:id', component: DetailsGroupComponent },
+
 
     ])
   ],
-  providers: [
-    HttpService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

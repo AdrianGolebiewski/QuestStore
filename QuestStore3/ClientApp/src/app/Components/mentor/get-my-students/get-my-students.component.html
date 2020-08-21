@@ -1,37 +1,40 @@
-<h1 id="tableLabel">My students</h1>
+<div class="container-no-homepages">
 
-<p>This component demonstrates all available your students.</p>
+  <h1 id="tableLabel">My students</h1>
 
-<p *ngIf="!users"><em>Loading...</em></p>
+  <p>This component demonstrates all available your students.</p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
-  <thead>
-    <tr>
-      <th> Firstname</th>
-      <th> Lastname</th>
-      <th> E-mail</th>
-      <th> Phone number</th>
-      <th> Address</th>
-      <th> Date</th>
-      <th> Postcode</th>
-      <th> Status</th>
+  <p *ngIf="!users"><em>Loading...</em></p>
+
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="users">
+    <thead>
+      <tr>
+        <th> Firstname</th>
+        <th> Lastname</th>
+        <th> E-mail</th>
+        <th> Phone number</th>
+        <th> Address</th>
+        <th> Date</th>
+        <th> Postcode</th>
+        <th> Status</th>
 
 
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.firstName }}</td>
-      <td>{{ user.lastName }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.phoneNumber }}</td>
-      <td>{{ user.adress }}</td>
-      <td>{{ user.registrationDate }}</td>
-      <td>{{ user.postcode }}</td>
-      <td>{{ user.status }}</td>
-      
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.adress }}</td>
+        <td>{{ user.registrationDate }}</td>
+        <td>{{ user.postcode }}</td>
+        <td>{{ user.status }}</td>
 
-</tr>
-  </tbody>
-</table>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

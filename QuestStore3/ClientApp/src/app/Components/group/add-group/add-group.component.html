@@ -1,26 +1,28 @@
-<h1 id="tableLabel">Add group</h1>
+<div class="container-no-homepages">
+  <h1 id="tableLabel">Add group</h1>
 
-<p>This component demonstrates group adding functionality.</p>
+  <p>This component demonstrates group adding functionality.</p>
 
-<div class="row">
-  <div class="col-md-4">
-    <form method="post" [formGroup]="groupForm" (ngSubmit)="postGroup()">
-      <div class="text-danger"></div>
-      <div class="form-group">
-        <label class="control-label">Name</label>
-        <input type="text" class="form-control" placeholder="Enter name" formControlName="name"/>
-      </div>
-      <div class="form-group">
-        <label class="control-label">Description</label>
-        <input type="text" class="form-control" placeholder="Enter description" formControlName="description"/>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Add</button>
-      </div>
-    </form>
+  <div class="row">
+    <div class="col-md-4">
+      <form method="post" [formGroup]="groupForm" (ngSubmit)="postGroup()">
+        <div class="text-danger"></div>
+        <div class="form-group">
+          <label class="control-label">Name</label>
+          <input type="text" class="form-control" placeholder="Enter name" formControlName="name" />
+        </div>
+        <div class="form-group">
+          <label class="control-label">Description</label>
+          <input type="text" class="form-control" placeholder="Enter description" formControlName="description" />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
-<div>
-  <a class="nav-link text-dark" [routerLinkActive]="['link-active']" [routerLink]="['/get-my-groups']">Back to list</a>
-</div>
+  <div>
+    <a class="nav-link text-dark" [routerLinkActive]="['link-active']" [routerLink]="['/get-my-groups']">Back to list</a>
+  </div>
+ </div>

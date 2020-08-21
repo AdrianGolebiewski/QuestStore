@@ -1,26 +1,33 @@
-<h1 id="tableLabel">Quests</h1>
+<div class="container-no-homepages">
 
-<p>This component demonstrates all available quests.</p>
+  <h1 id="tableLabel">Quests</h1>
 
-<p *ngIf="!quests"><em>Loading...</em></p>
+  <p>This component demonstrates all available quests.</p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="quests">
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Amount</th>
+  <p *ngIf="!quests"><em>Loading...</em></p>
 
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let quest of quests">
-      <td>{{ quest.description }}</td>
-      <td>{{ quest.price }}</td>
-      <td>{{ quest.amount }}</td>
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="quests">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Category</th>
 
 
-    </tr>
-  </tbody>
-</table>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quest of quests">
+        <td>{{ quest.description }}</td>
+        <td>{{ quest.price }}</td>
+        <td>{{ quest.amount }}</td>
+        <td>{{ quest.category }}</td>
+  
+
+
+
+      </tr>
+    </tbody>
+  </table>
+  </div>

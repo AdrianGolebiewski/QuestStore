@@ -1,31 +1,37 @@
-<h1 id="tableLabel">My groups</h1>
+<div class="container-no-homepages">
 
-<p>This component demonstrates all available your groups.</p>
+  <h1 id="tableLabel">My groups</h1>
 
-<p *ngIf="!myGroup"><em>Loading...</em></p>
+  <p>This component demonstrates all available your groups.</p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="myGroup">
-  <thead>
-    <tr>
-      <th> Group ID</th>
-      <th> Name</th>
-      <th> Description</th>
-      <th>
-        <button type="button" class="btn btn-outline-primary"  [routerLinkActive]="['link-active']" [routerLink]="['/add-group']">Create new group</button>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of myGroup">
-      <td>{{ user.groupID }}</td>
-      <td>{{ user.name }}</td>
-      <td>{{ user.description }}</td>
-      <td>
-          <button type="button" class="btn btn-outline-success btn-sm mr-1" >Add student</button>
+  <p *ngIf="!myGroup"><em>Loading...</em></p>
+
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="myGroup">
+    <thead>
+      <tr>
+        <th> Group ID</th>
+        <th> Name</th>
+        <th> Description</th>
+        <th>
+          <button type="button" class="btn btn-outline-primary" [routerLinkActive]="['link-active']" [routerLink]="['/add-group']">Create new group</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of myGroup">
+        <td>{{ user.groupID }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.description }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-success btn-sm mr-1">Add student</button>
           <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
-          <button type="button" class="btn btn-outline-info btn-sm mr-1">Details</button>
+          <button type="button" class="btn btn-outline-info btn-sm mr-1" [routerLinkActive]="['link-active']" [routerLink]="['/details-group/', user.groupID]">Details</button>
           <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+
+
