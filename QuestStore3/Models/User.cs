@@ -9,10 +9,12 @@ namespace QuestStore3.Models
     {
         Active, Inactive, Archival
     }
+   
     public enum Role
     {
         Admin, Mentor, Student
     }
+    
 
     public class User
     {
@@ -57,7 +59,7 @@ namespace QuestStore3.Models
         public bool CheckBoxAnswer { get; set; }
 
 
-        //public ICollection<Group> Group { get; set; }
+        public ICollection<Group> Group { get; set; }
         public IList<Quest> Quest { get; set; }
         public IList<Bonus> Bonus { get; set; }
     }

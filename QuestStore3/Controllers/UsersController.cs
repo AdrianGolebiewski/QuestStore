@@ -12,6 +12,7 @@ using System.Collections.Generic;
 
 namespace QuestStore3.Controllers
 {
+
     [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
@@ -32,52 +33,43 @@ namespace QuestStore3.Controllers
 
         // GET: Users
         [HttpGet]
-        public async Task<IEnumerable<User>> Get()
+       
+        public async Task<IActionResult> Get()
         {
-            return await _context.User.ToArrayAsync();
+            var values = await _context.User.ToListAsync();
+            return Ok(values);
         }
 
-        //// GET: Users/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        // GET: Users/Details/5
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var user = await _context.User.FirstOrDefaultAsync(m => m.ID == id);
+                return Ok(user);
+            }
+        }
+        
+        // POST: Users/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 
-        //    var user = await _context.User
-        //        .FirstOrDefaultAsync(m => m.ID == id);
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(user);
-        //}
-
-        //// GET: Users/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: Users/Create
-        //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(User user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        user.RegistrationDate = DateTime.UtcNow;
-        //        user.Status = Status.Inactive;
-        //        _context.Add(user);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(user);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(User user)
+        {
+            user.RegistrationDate = DateTime.UtcNow;
+            user.Status = Status.Inactive;
+            _context.User.Add(user);
+            await _context.SaveChangesAsync();
+                
+            return Ok(user);
+        }
 
         //// GET: Users/Edit/5
         //public async Task<IActionResult> Edit(int? id)
@@ -106,7 +98,7 @@ namespace QuestStore3.Controllers
         //    return View(_userEdit);
         //}
 
-        
+
         //[HttpPost]
         //public async Task<IActionResult> Edit(int id, UserEdit user)
         //{

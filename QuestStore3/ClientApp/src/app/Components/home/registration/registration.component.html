@@ -1,76 +1,102 @@
-<h1 id="tableLabel">Registration</h1>
+<h1 id="tableLabel" style="text-align: center">Registration</h1>
+<hr />
 
-<p>This component demonstrates register options.</p>
-
-<form method="post">
+<form method="post" [formGroup]="registerForm" (ngSubmit)="register()" >
 <div  class="text-danger"></div>
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-sm-6 col-md-4">
     <div class="form-group">
       <label class="control-label">First Name</label>
-      <input class="form-control" />
-      <span class="text-danger"></span>
+      <input type="text" class="form-control" formControlName="firstName"
+             [ngClass]="{ 'is-invalid': registerForm.get('firstName').errors && registerForm.get('firstName').touched}">
+      <div class="invalid-feedback">The First Name is required</div>
     </div>
   </div>
   <div class="col-sm-6 col-md-4">
     <div class="form-group">
       <label class="control-label">Last Name</label>
-      <input class="form-control" />
-      <span class="text-danger"></span>
+      <input type="text" class="form-control" formControlName="lastName"
+             [ngClass]="{ 'is-invalid': registerForm.get('lastName').errors && registerForm.get('lastName').touched}">
+      <div class="invalid-feedback">The Last Name is required</div>
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-sm-6 col-md-4">
     <div class="form-group">
       <label class="control-label">Email</label>
-      <input class="form-control" />
-      <span class="text-danger"></span>
+      <input type="email" class="form-control" formControlName="email"
+             [ngClass]="{ 'is-invalid': registerForm.get('email').errors && registerForm.get('email').touched}">
+      <div class="invalid-feedback">Email is required</div>
     </div>
   </div>
   <div class="col-sm-6 col-md-4">
     <div class="form-group">
       <label class="control-label">Phone Number</label>
-      <input class="form-control" />
-      <span class="text-danger"></span>
+      <input type="number" class="form-control" formControlName="phoneNumber"
+             [ngClass]="{ 'is-invalid': registerForm.get('phoneNumber').errors && registerForm.get('phoneNumber').touched}">
+      <div class="invalid-feedback">The Phone Number is required</div>
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-sm-6 col-md-4">
     <div class="form-group">
       <label class="control-label">Password</label>
-      <input class="form-control" />
-      <span class="text-danger"></span>
+      <input type="password" class="form-control" formControlName="password"
+             [ngClass]="{ 'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}">
+      <div class="invalid-feedback">Password is required</div>
     </div>
   </div>
   <div class="col-sm-6 col-md-4">
     <div class="form-group">
-      <label  class="control-label">Confirm Password</label>
-      <input  class="form-control" />
+      <label class="control-label">Confirm Password</label>
+      <input type="password" class="form-control" formControlName="confirmPassword"
+             [ngClass]="{ 'is-invalid': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched
+                        || registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')}">
+      <div class="invalid-feedback"
+           *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">
+        Password is required
+      </div>
+      <div class="invalid-feedback"
+           *ngIf="registerForm.hasError('mismatch') && registerForm.get('confirmPassword').touched">
+        Passwords must be the same
+      </div>
+
     </div>
-  </div>
+    </div>
 </div>
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-sm-4 col-md-4">
     <div class="form-group">
       <label class="control-label">Address</label>
-      <input class="form-control" />
+      <input type="text" class="form-control" formControlName="adress"
+             [ngClass]="{ 'is-invalid': registerForm.get('adress').errors && registerForm.get('adress').touched}">
+      <div class="invalid-feedback">Adress is required</div>
     </div>
   </div>
   <div class="col-sm-4 col-md-2">
     <div class="form-group">
       <label class="control-label">Postcode</label>
-      <input class="form-control" />
+      <input type="number" class="form-control" formControlName="postcode"
+             [ngClass]="{ 'is-invalid': registerForm.get('postcode').errors && registerForm.get('postcode').touched}">
+      <div class="invalid-feedback">Postcode is required</div>
     </div>
   </div>
   <div class="col-sm-4 col-md-2">
     <div class="form-group">
       <label class="control-label">Role</label>
-      <select class="form-control"></select>
+      <select type="number" class="form-control" formControlName="role"
+              [ngClass]="{ 'is-invalid': registerForm.get('role').errors && registerForm.get('role').touched}">
+        <option value="Admin">Admin</option>
+        <option value="Mentor">Mentor</option>
+        <option value="Student">Student</option>
+      </select>
+      <div class="invalid-feedback">Role is required</div>
     </div>
   </div>
 </div>
-
-<button type="submit" class="btn btn-primary">Register</button>
+<div class="row justify-content-center">
+  <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+</div>
 </form>

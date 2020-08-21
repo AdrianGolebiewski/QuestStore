@@ -18,6 +18,7 @@ import { GetMyStudentsComponent } from './Components/mentor/get-my-students/get-
 import { GetMyGroupsComponent } from './Components/mentor/get-my-groups/get-my-groups.component';
 import { AddGroupComponent } from './Components/group/add-group/add-group.component';
 import { DetailsGroupComponent } from './Components/group/details-group/details-group.component';
+import { HttpService } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { DetailsGroupComponent } from './Components/group/details-group/details-
 
     ])
   ],
-  providers: [],
+  providers: [
+    HttpService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

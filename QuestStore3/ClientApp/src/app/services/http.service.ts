@@ -23,4 +23,9 @@ export class HttpService {
   {
     return this.httpService.get<any>(route);
   }
+  register(user: User) {
+    return this.httpService.post('https://localhost:44390/api/account/reg', user);
+  }
 }
+
+

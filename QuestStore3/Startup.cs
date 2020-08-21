@@ -48,7 +48,8 @@ namespace QuestStore3
             services.AddTransient<QuestAssignment>();
 
             services.AddDistributedMemoryCache();
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();           
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,6 +99,8 @@ namespace QuestStore3
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
         }
     }
 }

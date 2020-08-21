@@ -22,6 +22,7 @@ namespace QuestStore3.Controllers
         }
 
         // GET: Bonuses
+        [HttpGet]
         public async Task<IEnumerable<Bonus>> Get()
         {
             return await _context.Bonuse.ToListAsync();

@@ -30,20 +30,23 @@ namespace QuestStore3.Controllers
 
         //[HttpPost] //TODO: spr. atrybuty
         //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> RegisterUser(User user)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var temp = GetHash(user.Password);
-        //        user.Password = temp;
-        //        user.RegistrationDate = DateTime.UtcNow;
-        //        user.Status = Status.Inactive;
-        //        _context.Add(user);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction("Index", "Account");
-        //    }
-        //    return View(user);
-        //}
+
+        [Route("reg")]
+        [HttpPost]
+        public async Task<IActionResult> RegisterUser(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                var temp = GetHash(user.Password);
+                user.Password = temp;
+                user.RegistrationDate = DateTime.UtcNow;
+                user.Status = Status.Inactive;
+                _context.Add(user);
+                await _context.SaveChangesAsync();
+                
+            }
+            return Ok(user);
+        }
 
         //public IActionResult RegisterUser()
         //{

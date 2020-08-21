@@ -1,5 +1,9 @@
 import { DatePipe } from "@angular/common";
 
+export enum Role {
+  Admin, Mentor, Student
+}
+
 export interface UsersFull {
 
   id: number,
@@ -12,7 +16,7 @@ export interface UsersFull {
   adress: string,
   postcode: number,
   registrationDate: string;
-  role: number
+  role: number;
   status: number,
   checkboxanswer: boolean,
   quest: string;
