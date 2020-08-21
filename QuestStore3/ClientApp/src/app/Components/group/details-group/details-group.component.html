@@ -1,22 +1,23 @@
-<h1>Group Details</h1>
+<div class="container-no-homepages">
 
-<div>
-  
-</div>
-<table class="table">
+  <h1>Group Details</h1>
+
+  <p *ngIf="!groupStudents"><em>Loading...</em></p>
+
+  <table class="table">
     <thead>
-        <tr>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Email</th>
-            <th>PhoneNumber</th>
-            <th>Address</th>
-            <th>Postcode</th>
-            <th>RegistrationDate</th>
-            <th>Status</th>
+      <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>PhoneNumber</th>
+        <th>Address</th>
+        <th>Postcode</th>
+        <th>RegistrationDate</th>
+        <th>Status</th>
 
 
-        </tr>
+      </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of groupStudents">
@@ -32,8 +33,9 @@
 
       </tr>
     </tbody>
-</table>
-<div>
+  </table>
+  <div>
     <a class="btn btn-primary mr-2">Edit</a>
     <a class="btn btn-primary">Back to List</a>
+  </div>
 </div>

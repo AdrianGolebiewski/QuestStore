@@ -1,3 +1,7 @@
+enum Category {
+  a, b, c
+}
+
 export interface Quest {
 
 user: string,
@@ -5,8 +9,7 @@ id: number,
 name: string,
 description: string,
 price: number,
-category: string,
-  amount: number,
-  checkBoxAnswer: boolean 
-
+category: Category;
+checkBoxAnswer: boolean
+fileString: string
 }

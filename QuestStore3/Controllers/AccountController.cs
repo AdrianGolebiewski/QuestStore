@@ -138,7 +138,7 @@ namespace QuestStore3.Controllers
         public bool Logout()
         {
             var login =  HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
+            //TODO: Redirect to Home
             return true;
         }
 

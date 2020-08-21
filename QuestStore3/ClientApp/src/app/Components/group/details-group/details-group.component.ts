@@ -30,7 +30,7 @@ export class DetailsGroupComponent implements OnInit {
       mentorId: 0,
       name: 'a',
     }
-   // temp.groupID = id;
+    temp.groupID = id;
     this._http.post<GroupUser[]>(this._base + 'api/groups/details', temp).subscribe(result => {
     this.groupStudents = result;
   }, error => console.error(error));

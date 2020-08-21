@@ -8,5 +8,6 @@ export interface Bonus {
   category: string,
   amount: number,
   checkBoxAnswer: boolean
+  fileString: string
 
 }

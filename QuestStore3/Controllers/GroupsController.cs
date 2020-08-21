@@ -83,35 +83,36 @@ namespace QuestStore3.Data
 
         //}
 
-        // GET: Groups/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        [Route("details")]
+        [HttpPost]
+        public async Task<IEnumerable<User>> Details(Group id)
+        {
+            //if (id == null)
+            //{
+            //    return null;
+            //}
 
-        //    var group = await _context.Group
-        //        .FirstOrDefaultAsync(m => m.GroupID == id);
-          
-        //    if (@group == null)
-        //    {
-        //        return NotFound();
-        //    }
-            
-        //    var userList = new List<User>();
-        //    var s = await _context.GroupAssignment.Where(u => u.GroupID == id).ToListAsync();
-          
-        //    foreach (var user in s)
-        //    {
-        //        var x = _context.User.Where(u => u.ID == user.UserID).FirstOrDefault();
-        //        userList.Add(x);
-        //    }
+            //var group = await _context.Group
+            //    .FirstOrDefaultAsync(m => m.GroupID == id);
 
-           
+            //if (@group == null)
+            //{
+            //    return null;
+            //}
 
-        //    return View((@group, userList));
-        //}
+            var userList = new List<User>();
+            var s = await _context.GroupAssignment.Where(u => u.GroupID == id.GroupID).ToListAsync();
+
+            foreach (var user in s)
+            {
+                var x = _context.User.Where(u => u.ID == user.UserID).FirstOrDefault();
+                userList.Add(x);
+            }
+
+
+
+            return userList;
+        }
 
         //// GET: Groups/Create
         //public IActionResult Create()

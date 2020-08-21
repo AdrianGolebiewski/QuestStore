@@ -1,25 +1,28 @@
-<h1 id="tableLabel">Bonuses</h1>
+<div class="container-no-homepages">
 
-<p>This component demonstrates all available bonuses.</p>
+  <h1 id="tableLabel">Bonuses</h1>
 
-<p *ngIf="!bonuses"><em>Loading...</em></p>
+  <p>This component demonstrates all available bonuses.</p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bonuses">
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Amount</th>
-    </tr>
-  </thead>
+  <p *ngIf="!bonuses"><em>Loading...</em></p>
 
-  <tbody>
-    <tr *ngFor="let bonus of bonuses">
-      <td>{{ bonus.description }}</td>
-      <td>{{ bonus.price }}</td>
-      <td>{{ bonus.amount }}</td>
+  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bonuses">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let bonus of bonuses">
+        <td>{{ bonus.description }}</td>
+        <td>{{ bonus.price }}</td>
+        <td>{{ bonus.amount }}</td>
 
 
-    </tr>
-  </tbody>
-</table>
+      </tr>
+    </tbody>
+  </table>
+  </div>

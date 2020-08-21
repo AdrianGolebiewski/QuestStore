@@ -17,6 +17,7 @@ namespace QuestStore3.Models
         public int Amount { get; set; }
         [NotMapped]
         public bool CheckBoxAnswer { get; set; }
+        public string FileString { get; set; }
 
 
     }

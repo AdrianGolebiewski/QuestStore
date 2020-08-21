@@ -1,36 +1,3 @@
-<!--<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#myPage">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">HOME</a></li>
-        <li><a href="#band">BAND</a></li>
-        <li><a href="#tour">TOUR</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            MORE
-            <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Merchandise</a></li>
-            <li><a href="#">Extras</a></li>
-            <li><a href="#">Media</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>-->
-
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
     <nav class="navbar navbar-default navbar-fixed-top navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow">
@@ -55,7 +22,7 @@
             <li> <a class="nav-item nav-link text-dark" href="#bonuses">Bonuses</a></li>
             <li> <a class="nav-item nav-link text-dark" href="#contact">Contact</a></li>
           </ul>
-         </div>
+        </div>
         <div>
           <form class="form-inline" [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="notLogged">
             <div class="form-group mr-2">
@@ -74,7 +41,7 @@
 
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
              [ngClass]="{ show: isExpanded }" *ngIf="admin">
-          <ul class="navbar-nav flex-grow">
+          <ul class="navbar-nav mr-auto">
             <li class="nav-item" [routerLinkActive]="['link-active']">
               <a class="nav-link text-dark" [routerLink]="['/get-user']">Users</a>
             </li>
@@ -83,13 +50,10 @@
             </li>
             <li class="nav-item" [routerLinkActive]="['link-active']">
               <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
-            </li>
-            <li>
-            <li class="nav-item">
-              <a class="btn btn-primary" style="margin-left: 10px" (click)="logOut()">Logout</a>
-            </li>
           </ul>
         </div>
+        <div *ngIf="admin" class="identity" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
+        <div *ngIf="admin" class="btn btn-primary float-right" style="margin-left: auto" (click)="logOut()">Logout</div>
 
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
              [ngClass]="{ show: isExpanded }" *ngIf="mentor">
@@ -108,12 +72,12 @@
             </li>
           </ul>
         </div>
-        <div *ngIf="mentor" class="text-dark" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
+        <div *ngIf="mentor" class="identity" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
         <div *ngIf="mentor" class="btn btn-primary float-right" style="margin-left: auto" (click)="logOut()">Logout</div>
 
         <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
              [ngClass]="{ show: isExpanded }" *ngIf="student">
-          <ul class="navbar-nav flex-grow">
+          <ul class="navbar-nav  mr-auto">
             <li class="nav-item" [routerLinkActive]="['link-active']"
                 [routerLinkActiveOptions]="{ exact: true }">
               <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
@@ -124,19 +88,11 @@
             <li class="nav-item" [routerLinkActive]="['link-active']">
               <a class="nav-link text-dark" [routerLink]="['/get-bonus']">Bonuses</a>
             </li>
-            <li class="nav-item">
-              <a class="btn btn-primary" style="margin-left: 10px" (click)="logOut()">Logout</a>
-            </li>
           </ul>
         </div>
-
-
-
-
-      </div>
-
+        <div *ngIf="student" class="identity" style="margin-left: auto; padding-right: 10px">Hello, {{identity[0]}} {{identity[1]}}</div>
+        <div *ngIf="student" class="btn btn-primary float-right" style="margin-left: auto" (click)="logOut()">Logout</div>
+       </div>
     </nav>
-
-
   </body>
 

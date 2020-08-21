@@ -117,31 +117,15 @@
   <div id="quests" class="bg-1">
     <div class="container">
       <h3 class="text-center">QUESTS</h3>
-      <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
-
+      <p class="text-center">Remember about <span class="badge badge-light">Golden coins!</span></p>
       <div class="row text-center">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="" alt="Paris" width="400" height="300">
-            <p><strong>Paris</strong></p>
-            <p>Friday 27 November 2015</p>
-            <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="" alt="New York" width="400" height="300">
-            <p><strong>New York</strong></p>
-            <p>Saturday 28 November 2015</p>
-            <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="" alt="San Francisco" width="400" height="300">
-            <p><strong>San Francisco</strong></p>
-            <p>Sunday 29 November 2015</p>
-            <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        <div class="col-sm-4" *ngFor="let quest of quests">
+          <div class="thumbnail img-thumbnail">
+            <img src="/img/quests/{{quest.fileString}}" alt="foto" width="400" height="300">
+            <p><strong>{{quest.name}}</strong></p>
+            <p>{{quest.description}}</p>
+            <button class="btn" data-toggle="modal">More info</button>
+            <button class="btn" data-toggle="modal">Earn <span class="badge badge-light">{{quest.price}}</span>coins</button>
           </div>
         </div>
       </div>
@@ -151,67 +135,15 @@
   <div id="bonuses" class="bg-2">
     <div class="container">
       <h3 class="text-center">BONUSES</h3>
-      <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
-
+      <p class="text-center">You have <span class="badge badge-light">xx golden coins!</span></p>
       <div class="row text-center">
-        <div class="col-sm-4">
+        <div class="col-sm-4" *ngFor="let bonus of bonuses">
           <div class="thumbnail">
-            <img src="" alt="Paris" width="400" height="300">
-            <p><strong>Paris</strong></p>
-            <p>Friday 27 November 2015</p>
-            <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="" alt="New York" width="400" height="300">
-            <p><strong>New York</strong></p>
-            <p>Saturday 28 November 2015</p>
-            <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <img src="" alt="San Francisco" width="400" height="300">
-            <p><strong>San Francisco</strong></p>
-            <p>Sunday 29 November 2015</p>
-            <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
-            <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
-          </div>
-          <div class="modal-body">
-            <form role="form">
-              <div class="form-group">
-                <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
-                <input type="number" class="form-control" id="psw" placeholder="How many?">
-              </div>
-              <div class="form-group">
-                <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
-                <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-              </div>
-              <button type="submit" class="btn btn-block">
-                Pay
-                <span class="glyphicon glyphicon-ok"></span>
-              </button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-              <span class="glyphicon glyphicon-remove"></span> Cancel
-            </button>
-            <p>Need <a href="#">help?</a></p>
+            <img src="/img/bonuses/{{bonus.fileString}}" alt="foto" width="400" height="300">
+            <p><strong>{{bonus.name}}</strong></p>
+            <p>{{bonus.description}}</p>
+            <button class="btn" data-toggle="modal">More info</button>
+            <button class="btn" data-toggle="modal">Buy it for <span class="badge badge-light">{{bonus.price}}</span>coins</button>
           </div>
         </div>
       </div>

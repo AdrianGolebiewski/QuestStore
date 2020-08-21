@@ -58,6 +58,8 @@ import { FooterComponent } from './Components/footer/footer.component';
       { path: 'get-my-students', component: GetMyStudentsComponent },
       { path: 'get-my-groups', component: GetMyGroupsComponent },
       { path: 'add-group', component: AddGroupComponent },
+      { path: 'details-group/:id', component: DetailsGroupComponent },
+
 
     ])
   ],

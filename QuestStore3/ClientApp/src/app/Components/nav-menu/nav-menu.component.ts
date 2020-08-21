@@ -3,6 +3,7 @@ import { User } from '../user/user';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpService } from '../../services/http.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class NavMenuComponent implements OnInit {
   private _base: string;
   notLogged; admin; mentor; student: boolean;
   identity: string[];
+  
   
 
   constructor(private https: HttpService, http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
@@ -81,7 +83,6 @@ export class NavMenuComponent implements OnInit {
   }
 
   logOut() {
-    let temp: boolean;
     this._httpClient.options<boolean>(this._base + 'api/account').subscribe((result) => {
       window.location.reload();
     },
