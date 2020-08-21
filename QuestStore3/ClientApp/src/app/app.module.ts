@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';  
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
@@ -18,6 +19,7 @@ import { GetMyStudentsComponent } from './Components/mentor/get-my-students/get-
 import { GetMyGroupsComponent } from './Components/mentor/get-my-groups/get-my-groups.component';
 import { AddGroupComponent } from './Components/group/add-group/add-group.component';
 import { DetailsGroupComponent } from './Components/group/details-group/details-group.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { DetailsGroupComponent } from './Components/group/details-group/details-
     GetMyGroupsComponent,
     AddGroupComponent,
     DetailsGroupComponent,
+    FooterComponent,
 
     
   ],
@@ -43,6 +46,7 @@ import { DetailsGroupComponent } from './Components/group/details-group/details-
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

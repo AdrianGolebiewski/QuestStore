@@ -1,1 +1,39 @@
-<p>details-group works!</p>
+<h1>Group Details</h1>
+
+<div>
+  
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>Address</th>
+            <th>Postcode</th>
+            <th>RegistrationDate</th>
+            <th>Status</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of groupStudents">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.adres }}</td>
+        <td>{{ user.postcode }}</td>
+        <td>{{user.registrationDate}}</td>
+        <td>{{ user.status }}</td>
+
+
+      </tr>
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-primary mr-2">Edit</a>
+    <a class="btn btn-primary">Back to List</a>
+</div>

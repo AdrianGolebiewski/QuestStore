@@ -11,7 +11,7 @@
       <th> Name</th>
       <th> Description</th>
       <th>
-        <button type="button" class="btn btn-outline-primary"  [routerLinkActive]="['link-active']" [routerLink]="['/add-group']">Create new group</button>
+        <button type="button" class="btn btn-outline-primary" [routerLinkActive]="['link-active']" [routerLink]="['/add-group']">Create new group</button>
       </th>
     </tr>
   </thead>
@@ -21,11 +21,14 @@
       <td>{{ user.name }}</td>
       <td>{{ user.description }}</td>
       <td>
-          <button type="button" class="btn btn-outline-success btn-sm mr-1" >Add student</button>
-          <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
-          <button type="button" class="btn btn-outline-info btn-sm mr-1">Details</button>
-          <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+        <button type="button" class="btn btn-outline-success btn-sm mr-1">Add student</button>
+        <button type="button" class="btn btn-outline-dark btn-sm mr-1">Edit</button>
+        <button type="button" class="btn btn-outline-info btn-sm mr-1" [routerLinkActive]="['link-active']" [routerLink]="['/details-group/', user.groupID]">Details</button>
+        <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
       </td>
     </tr>
   </tbody>
 </table>
+
+
+
